@@ -1,6 +1,7 @@
 package Ejercicio;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -29,7 +30,22 @@ import java.util.List;
  */
 public class EjercicioUno {
 
-    // List<List<Integer>> subsets(List<Integer> set) {
+     public List<List<Integer>> subsets(List<Integer> set) {
+        List<List<Integer>> set2=new ArrayList<List<Integer>>();
+        set2.add(new ArrayList<Integer>());
+        for(Integer x:set){
+            addSetByElement(x,set2);
+        }
+        set2.add(set);
+        return set2;
+  }
 
-    // }
+    private void addSetByElement(Integer x, List<List<Integer>> set2) {
+        int currentSize=set2.size();
+        for(int i=0;i<currentSize;i++){
+            List<Integer>newSubject=new ArrayList<Integer>(set2.get(i));
+            newSubject.add(x);
+            set2.add(newSubject);
+        }
+    }
 }
